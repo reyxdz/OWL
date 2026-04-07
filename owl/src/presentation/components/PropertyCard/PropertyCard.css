@@ -1,0 +1,124 @@
+.property-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  /* Slightly deeper shadow on hover for a floating effect */
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.1), 
+    -12px -12px 24px rgba(255, 255, 255, 1),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.04), 
+    inset -4px -4px 8px rgba(255, 255, 255, 1);
+}
+
+.property-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--clay-border-radius);
+  overflow: hidden;
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2); /* give depth to the image well */
+}
+
+.property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* CAROUSEL BUTTONS */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+/* Hover over the container to reveal the buttons */
+.property-image-container:hover .carousel-btn {
+  opacity: 1;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  /* When hovering the specific button, it scales up slightly */
+  transform: translateY(-50%) scale(1.1);
+  color: var(--primary-accent);
+}
+
+/* CAROUSEL INDICATORS */
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.indicator.active {
+  background-color: var(--primary-accent);
+  transform: scale(1.2);
+}
+
+/* PROPERTY DETAILS */
+.property-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.property-name {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text-main);
+}
+
+.property-location {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--highlight);
+  font-weight: 500;
+}
+
+.property-price {
+  margin: 0.5rem 0 0 0;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: var(--primary-accent);
+}

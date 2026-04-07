@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@900&display=swap');
+
+.navbar {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* Override default clay-card padding to be horizontal only for proper alignment */
+  padding: 0 2rem;
+  z-index: 1000;
+
+  /* Additional roundedness for pill shape */
+  border-radius: 40px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* slightly increased so it doesn't crush the extruded text */
+}
+
+.navbar-logo {
+  height: 48px;
+  /* matched to the new larger text size */
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--primary-accent);
+  letter-spacing: 0.5px;
+  line-height: 1;
+  margin-left: -10px;
+
+  /* Clay text effect: creating a soft 3D pop using multi-layered text-shadows */
+  text-shadow:
+    3px 3px 6px rgba(211, 131, 14, 0.4),
+    /* Darker gold shadow pulling down-right */
+    -2px -2px 4px rgba(255, 255, 255, 1);
+  /* Pure white highlight pulling up-left */
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--highlight);
+  pointer-events: none;
+}
+
+.navbar-search {
+  width: 100%;
+  padding-left: 3rem;
+  /* Make room for the search icon */
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-radius: 20px;
+}
+
+.navbar-search:focus+.search-icon {
+  color: var(--primary-accent);
+}
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  /* Reduced from 48px */
+  height: 40px;
+  /* Reduced from 48px */
+  padding: 0;
+  border-radius: 50%;
+  /* Circle button */
+}
+
+/* Adjust secondary hover state softly for icon buttons */
+.filter-button:hover {
+  color: var(--primary-accent);
+}
